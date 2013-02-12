@@ -1,1 +1,1 @@
-java -Djava.net.preferIPv4Stack=true -Djgroups.bind_addr=localhost -Dfile.encoding=UTF-8 -classpath ../conf:../lib/jgroups-3.2.7.Final.jar:../lib/log4j-1.2.16.jar:../lib/jgroups-startup-1.0.0-SNAPSHOT.jar com.tedwon.pilot.jgroups.JGroupsAppStarter_7801
+java -Djava.net.preferIPv4Stack=true -Djgroups.bind_addr=localhost -Djgroups.tcpping.initial_hosts=localhost[7800],localhost[7801] -Dfile.encoding=UTF-8 -classpath ../conf:../lib/jgroups-3.2.7.Final.jar:../lib/log4j-1.2.16.jar:../lib/jgroups-startup-1.0.0-SNAPSHOT.jar com.tedwon.pilot.jgroups.JGroupsAppStarter_7801

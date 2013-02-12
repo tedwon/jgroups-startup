@@ -5,7 +5,7 @@ import org.jgroups.Message;
 import org.jgroups.ReceiverAdapter;
 
 /**
- * VM Options: -Djava.net.preferIPv4Stack=true -Djgroups.bind_addr=localhost
+ * VM Options: -Djava.net.preferIPv4Stack=true -Djgroups.bind_addr=localhost -Djgroups.tcpping.initial_hosts=localhost[7800],localhost[7801]
  */
 public class JGroupsAppStarter_7801 {
 
