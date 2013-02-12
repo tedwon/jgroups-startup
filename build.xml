@@ -1,0 +1,28 @@
+<?xml version="1.0"  encoding="euc-kr"?>
+<project name="Deploy" default="help" basedir=".">
+
+	<target name="help">
+		<echo>Apache Maven을 통해서 실행해야 합니다.</echo>
+	</target>
+
+	<target name="run">
+		<java classname="com.tedwon.pilot.jgroups.JGroupsAppStarter">
+			<arg value="-h"/>
+			<classpath>
+				<pathelement path="${runtime_classpath}"/>
+			</classpath>
+		</java>
+	</target>
+
+	<target name="site-resource-copy">
+		<copy overwrite="true" file="${basedir}/resources/maven-base.css" todir="${basedir}/target/site/css"/>
+		<copy overwrite="true" file="${basedir}/resources/maven-theme.css" todir="${basedir}/target/site/css"/>
+		<copy overwrite="true" file="${basedir}/resources/site.css" todir="${basedir}/target/site/css"/>
+		<copy overwrite="true" file="${basedir}/resources/print.css" todir="${basedir}/target/site/css"/>
+		<copy overwrite="true" file="${basedir}/resources/stylesheet.css"
+		      todir="${basedir}/target/site/apidocs"/>
+		<copy overwrite="true" file="${basedir}/resources/stylesheet.css"
+		      todir="${basedir}/target/site/testapidocs"/>
+	</target>
+
+</project>
