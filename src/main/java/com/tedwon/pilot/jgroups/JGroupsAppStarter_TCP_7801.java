@@ -7,28 +7,22 @@ import org.jgroups.ReceiverAdapter;
 /**
  * VM Options: -Djava.net.preferIPv4Stack=true -Djgroups.bind_addr=localhost -Djgroups.tcpping.initial_hosts=localhost[7800],localhost[7801]
  */
-public class JGroupsAppStarter_7800 {
+public class JGroupsAppStarter_TCP_7801 {
 
     public static void main(String[] args) throws Exception {
 
-        JChannel channel = new JChannel("tcp-7800.xml");
+        JChannel channel = new JChannel("tcp-7801.xml");
         channel.setReceiver(new ReceiverAdapter() {
             public void receive(Message msg) {
                 System.out.println("received msg from " + msg.getSrc() + ": " + msg.getObject());
             }
         });
         channel.connect("MyCluster");
+        channel.send(new Message(null, null, "hello world"));
 
 
-        for (int i = 0; i < 10; i++) {
-
-            channel.send(new Message(null, null, "hello world"));
-
-            Thread.sleep(1000);
-        }
-
-        synchronized (JGroupsAppStarter_7800.class) {
-            JGroupsAppStarter_7800.class.wait();
+        synchronized (JGroupsAppStarter_TCP_7801.class) {
+            JGroupsAppStarter_TCP_7801.class.wait();
         }
 
         channel.close();

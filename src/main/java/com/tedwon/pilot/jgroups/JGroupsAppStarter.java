@@ -9,8 +9,7 @@ public class JGroupsAppStarter {
 
     public static void main(String[] args) throws Exception {
 
-//        JChannel channel = new JChannel("udp.xml");
-        JChannel channel = new JChannel("tcp.xml");
+        JChannel channel = new JChannel("udp.xml");
         channel.setReceiver(new ReceiverAdapter() {
             public void receive(Message msg) {
                 System.out.println("received msg from " + msg.getSrc() + ": " + msg.getObject());
